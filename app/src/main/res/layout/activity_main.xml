@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.judah.songsofzion.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <ListView
+        android:layout_below="@id/toolbar"
+        android:id="@+id/track_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <android.support.v7.widget.Toolbar
+        android:background="#232323"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/toolbar2">
+        <ImageView
+            android:id="@+id/selected_track_image"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/block_helper"/>
+
+        <TextView
+            android:id="@+id/selected_track_title"
+            android:paddingLeft="8dp"
+            android:text="No Songs Loaded :("
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/player_control"
+            android:layout_gravity="right"
+            android:src="@drawable/play"
+            android:layout_width="@dimen/image_size"
+            android:layout_height="@dimen/image_size"/>
+    </android.support.v7.widget.Toolbar>
+
+    <SeekBar
+        style="?android:attr/seekBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekProgressBar"
+        android:layout_alignTop="@+id/toolbar2"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
