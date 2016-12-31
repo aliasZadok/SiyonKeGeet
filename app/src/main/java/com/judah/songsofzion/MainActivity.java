@@ -1,20 +1,15 @@
 package com.judah.songsofzion;
 
 
-import android.app.SearchManager;
-import android.content.ComponentName;
-import android.content.Context;
+
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,11 +26,16 @@ import com.judah.songsofzion.ui.WelcomeScreen;
 import com.judah.songsofzion.utils.Configuration;
 import com.judah.songsofzion.utils.SoundCloud;
 import com.judah.songsofzion.utils.SoundCloudService;
+import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.squareup.picasso.Picasso;
 import com.stephentuso.welcome.WelcomeHelper;
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
-                mPlayerController.setImageResource(R.drawable.play);
+                mPlayerController.setImageResource(R.drawable.ic_play_arrow_white_24dp);
             }
         });
 
@@ -172,7 +172,31 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
                 .withAccountHeader(headerResult)
                 .withDisplayBelowStatusBar(true)
                 .withActionBarDrawerToggleAnimated(true)
-                .withDrawerGravity(Gravity.LEFT)
+                .withDrawerGravity(Gravity.START)
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withName("Home").withIcon(GoogleMaterial.Icon.gmd_home).withSelectable(false),
+                        new DividerDrawerItem(),
+                        new SecondaryDrawerItem().withName("Hindi Songs").withIdentifier(1),
+                        new SecondaryDrawerItem().withName("Telugu Songs").withIdentifier(2),
+                        new SecondaryDrawerItem().withName("Nepali Songs").withIdentifier(3),
+                        new SecondaryDrawerItem().withName("Gujarati Songs").withIdentifier(4)
+
+                ).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        if (drawerItem != null){
+                            Intent intent = null;
+                            if (drawerItem.getIdentifier() == 1){
+                                intent = new Intent(MainActivity.this, MainActivity.class);
+                            }
+                            if (intent != null) {
+                                MainActivity.this.startActivity(intent);
+                            }
+                        }
+
+                        return false;
+                    }
+                })
                 .build();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -201,10 +225,10 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         mediaFileLengthInMilliseconds = mMediaPlayer.getDuration();
         if (mMediaPlayer.isPlaying()) {
             mMediaPlayer.pause();
-            mPlayerController.setImageResource(R.drawable.play);
+            mPlayerController.setImageResource(R.drawable.ic_play_arrow_white_24dp);
         } else {
             mMediaPlayer.start();
-            mPlayerController.setImageResource(R.drawable.pause);
+            mPlayerController.setImageResource(R.drawable.ic_pause_white_24dp);
         }
         primaryProgressBarUpdater();
     }
@@ -241,7 +265,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
-        mPlayerController.setImageResource(R.drawable.play);
+        mPlayerController.setImageResource(R.drawable.ic_play_arrow_white_24dp);
 
     }
 
