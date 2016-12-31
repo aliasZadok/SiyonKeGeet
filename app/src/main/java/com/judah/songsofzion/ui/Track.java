@@ -1,4 +1,5 @@
-package com.judah.songsofzion;
+package com.judah.songsofzion.ui;
+
 
 import com.google.gson.annotations.SerializedName;
 
@@ -40,10 +41,11 @@ public class Track {
         return mArtworkURL;
     }
 
-    public String getDuration(){
-        return "" + (int) ((mDuration / (1000 * 60)) % 60) + " minutes";
+    public String getDuration() {
+        return "" + (int) ((mDuration / (1000 * 60)) % 60) + ":" + (int) ((mDuration % (1000 * 60 * 60)) % (1000 * 60) / 1000);
     }
-    public String getDescription(){
+
+    public String getDescription() {
         return mDescription;
     }
 

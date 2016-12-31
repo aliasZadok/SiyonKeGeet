@@ -1,4 +1,4 @@
-package com.judah.songsofzion;
+package com.judah.songsofzion.utils;
 
 /**
  * Created by Judah on 12/21/2016.

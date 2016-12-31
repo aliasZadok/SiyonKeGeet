@@ -1,23 +1,36 @@
 package com.judah.songsofzion;
 
+
+import android.app.SearchManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.judah.songsofzion.ui.SCTrackAdapter;
+import com.judah.songsofzion.ui.Track;
+import com.judah.songsofzion.ui.WelcomeScreen;
+import com.judah.songsofzion.utils.Configuration;
+import com.judah.songsofzion.utils.SoundCloud;
+import com.judah.songsofzion.utils.SoundCloudService;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -54,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         mMediaPlayer = new MediaPlayer();
         mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
@@ -75,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
         ListView listView = (ListView) findViewById(R.id.track_list_view);
         mAdapter = new SCTrackAdapter(this, mListItems);
         listView.setAdapter(mAdapter);
+
 
         mSelectedTrackTitle = (TextView) findViewById(R.id.selected_track_title);
         mSelectedTrackImage = (ImageView) findViewById(R.id.selected_track_image);
@@ -164,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
 
     }
 
+
     private void showMessage(String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
     }
@@ -239,4 +256,5 @@ public class MainActivity extends AppCompatActivity implements View.OnTouchListe
             handler.postDelayed(notification, 1000);
         }
     }
+
 }

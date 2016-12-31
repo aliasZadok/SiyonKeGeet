@@ -1,5 +1,6 @@
-package com.judah.songsofzion;
+package com.judah.songsofzion.ui;
 
+import com.judah.songsofzion.R;
 import com.stephentuso.welcome.BasicPage;
 import com.stephentuso.welcome.ParallaxPage;
 import com.stephentuso.welcome.TitlePage;

@@ -1,4 +1,4 @@
-package com.judah.songsofzion;
+package com.judah.songsofzion.utils;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

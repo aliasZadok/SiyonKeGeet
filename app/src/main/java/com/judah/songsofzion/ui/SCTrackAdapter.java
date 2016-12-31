@@ -1,4 +1,4 @@
-package com.judah.songsofzion;
+package com.judah.songsofzion.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.judah.songsofzion.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -19,10 +21,11 @@ public class SCTrackAdapter extends BaseAdapter {
     private Context mContext;
     private List<Track> mTracks;
 
-    public SCTrackAdapter(Context context, List<Track> tracks){
+    public SCTrackAdapter(Context context, List<Track> tracks) {
         mContext = context;
         mTracks = tracks;
     }
+
     @Override
     public int getCount() {
         return mTracks.size();
@@ -42,7 +45,7 @@ public class SCTrackAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         Track track = (Track) getItem(i);
         ViewHolder viewHolder;
-        if (view == null){
+        if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.track_list_row, viewGroup, false);
             viewHolder = new ViewHolder();
             viewHolder.trackImageView = (ImageView) view.findViewById(R.id.track_image);
@@ -50,7 +53,7 @@ public class SCTrackAdapter extends BaseAdapter {
             viewHolder.durationTextView = (TextView) view.findViewById(R.id.track_duration);
             viewHolder.descriptionTextView = (TextView) view.findViewById(R.id.track_description);
             view.setTag(viewHolder);
-        }else {
+        } else {
             viewHolder = (ViewHolder) view.getTag();
         }
         viewHolder.titleTextView.setText(track.getTitle());
@@ -59,10 +62,13 @@ public class SCTrackAdapter extends BaseAdapter {
         Picasso.with(mContext).load(track.getArtworkURL()).into(viewHolder.trackImageView);
         return view;
     }
+
+
     static class ViewHolder {
         ImageView trackImageView;
         TextView titleTextView;
         TextView durationTextView;
         TextView descriptionTextView;
     }
+
 }

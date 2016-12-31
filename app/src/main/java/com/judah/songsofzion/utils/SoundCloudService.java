@@ -1,6 +1,9 @@
-package com.judah.songsofzion;
+package com.judah.songsofzion.utils;
 
 
+
+import com.judah.songsofzion.ui.Track;
+import com.judah.songsofzion.utils.Configuration;
 
 import java.util.List;
 

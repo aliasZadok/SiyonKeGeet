@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
         android:textSize="12sp"
-        android:layout_alignTop="@+id/track_duration"
+        android:layout_above="@+id/track_duration"
         android:layout_alignLeft="@+id/track_title"
         android:layout_alignStart="@+id/track_title"/>
 
