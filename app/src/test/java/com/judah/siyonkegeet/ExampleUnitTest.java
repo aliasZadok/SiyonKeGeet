@@ -1,4 +1,4 @@
-package com.judah.songsofzion;
+package com.judah.siyonkegeet;
 
 import org.junit.Test;
 

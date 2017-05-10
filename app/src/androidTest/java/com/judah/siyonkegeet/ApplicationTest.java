@@ -1,4 +1,4 @@
-package com.judah.songsofzion;
+package com.judah.siyonkegeet;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
