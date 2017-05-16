@@ -11,9 +11,5 @@
         <item name="android:textColorPrimary">@android:color/primary_text_light</item>
     </style>
 
-    <style name="CustomWelcomeScreenTheme" parent="WelcomeScreenTheme">
-        <item name="windowActionBar">true</item>
-        <item name="windowNoTitle">false</item>
-    </style>
 
 </resources>

@@ -1,10 +1,8 @@
-package com.judah.siyonkegeet.Hindi;
-
+package com.judah.siyonkegeet.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.media.RatingCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,16 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.futuremind.recyclerviewfastscroll.FastScroller;
+import com.judah.siyonkegeet.adapters.HindiSongsAdapter;
 import com.judah.siyonkegeet.R;
-import com.miguelcatalan.materialsearchview.MaterialSearchView;
-
-import java.util.ArrayList;
 
 /**
  * Created by Judah on 1/11/2017.
  */
 
 public class FragmentListHindi extends Fragment {
+    HindiSongsAdapter mHindiSongsAdapter;
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,17 +37,20 @@ public class FragmentListHindi extends Fragment {
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.hindiSongsList);
         FastScroller fastScroller = (FastScroller) view.findViewById(R.id.fastscroll);
-        HindiSongsAdapter hindiSongsAdapter = new HindiSongsAdapter(listener);
-        recyclerView.setAdapter(hindiSongsAdapter);
+        mHindiSongsAdapter = new HindiSongsAdapter(listener);
+        recyclerView.setAdapter(mHindiSongsAdapter);
         fastScroller.setRecyclerView(recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         return view;
     }
 
+
     public interface OnSongsSelectedInterface {
         void onListSongsSelected(int index);
     }
+
+
 
 
 }

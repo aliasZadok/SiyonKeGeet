@@ -49,12 +49,33 @@ public class About extends AppCompatActivity {
                 new MaterialDialog.Builder(About.this)
                         .title("Implemented Libraries")
                         .positiveText("OK")
-                        .content("Material-Dialogs \n\nWelcome-Android \n\nPicasso \n\nMaterialDrawer \n\nVolley \n\nRecycler Fast-scroll \n\nCircleImageView")
+                        .content("Material-Dialogs \n\nPicasso \n\nMaterialDrawer \n\nVolley \n\nRecycler Fast-scroll \n\nCircleImageView")
+                        .show();
+            }
+        });
+
+        CardView cardView2 = (CardView) findViewById(R.id.soundcloud);
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new MaterialDialog.Builder(About.this)
+                        .title("Listen to more songs")
+                        .content("Listen to other Hindi Gospel song tracks on SoundCloud")
+                        .positiveText("Listen")
+                        .onPositive(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                Uri uri = Uri.parse("https://soundcloud.com/siyon-ke-geet");
+                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                                startActivity(intent);
+                            }
+                        })
                         .show();
             }
         });
 
     }
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(IconicsContextWrapper.wrap(newBase));

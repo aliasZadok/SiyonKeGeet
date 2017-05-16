@@ -1,4 +1,4 @@
-package com.judah.siyonkegeet.Hindi;
+package com.judah.siyonkegeet.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
+import com.judah.siyonkegeet.model.HindiLyrics;
+import com.judah.siyonkegeet.ui.ViewPagerHindi;
 import com.judah.siyonkegeet.R;
 
 /**

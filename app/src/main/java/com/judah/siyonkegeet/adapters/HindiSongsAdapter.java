@@ -1,4 +1,4 @@
-package com.judah.siyonkegeet.Hindi;
+package com.judah.siyonkegeet.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.futuremind.recyclerviewfastscroll.SectionTitleProvider;
+import com.judah.siyonkegeet.model.HindiLyrics;
 import com.judah.siyonkegeet.R;
-
-import java.util.ArrayList;
+import com.judah.siyonkegeet.fragments.FragmentListHindi;
 
 
 /**
@@ -68,5 +68,6 @@ public class HindiSongsAdapter extends RecyclerView.Adapter implements SectionTi
             mListener.onListSongsSelected(mIndex);
         }
     }
+
 
 }

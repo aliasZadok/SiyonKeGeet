@@ -229,6 +229,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:id="@+id/soundcloud"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="10dp">
@@ -246,7 +247,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="70dp"
-                    android:text="Visit Website"
+                    android:text="Listen to more songs"
                     android:textSize="22sp"/>
             </android.support.v7.widget.CardView>
         </LinearLayout>

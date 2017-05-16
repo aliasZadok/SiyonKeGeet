@@ -1,4 +1,4 @@
-package com.judah.siyonkegeet.Hindi;
+package com.judah.siyonkegeet.ui;
 
 
 import android.support.v4.app.FragmentManager;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.judah.siyonkegeet.R;
+import com.judah.siyonkegeet.fragments.FragmentListHindi;
 
 public class HindiSongs extends AppCompatActivity implements FragmentListHindi.OnSongsSelectedInterface {
     public static final String LIST_FRAGMENT = "list_frag";

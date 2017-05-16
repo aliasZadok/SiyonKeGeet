@@ -1,4 +1,4 @@
-package com.judah.siyonkegeet.ui;
+package com.judah.siyonkegeet.model;
 
 
 /**

@@ -23,10 +23,9 @@ import android.widget.Toast;
 
 
 import com.android.volley.RequestQueue;
-import com.judah.siyonkegeet.Hindi.HindiSongs;
-import com.judah.siyonkegeet.ui.SCTrackAdapter;
-import com.judah.siyonkegeet.ui.Track;
-import com.judah.siyonkegeet.ui.WelcomeScreen;
+import com.judah.siyonkegeet.ui.HindiSongs;
+import com.judah.siyonkegeet.adapters.SCTrackAdapter;
+import com.judah.siyonkegeet.model.Track;
 import com.judah.siyonkegeet.utils.Configuration;
 import com.judah.siyonkegeet.utils.SoundCloudApiRequest;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
@@ -40,7 +39,6 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
-import com.stephentuso.welcome.WelcomeHelper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,7 +46,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    WelcomeHelper screen;
     ProgressBar mLoader;
     ProgressBar mMainLoader;
     long currentSongLength;
@@ -160,8 +157,7 @@ public class MainActivity extends AppCompatActivity {
         pushPrevious();
         pushNext();
 
-        screen = new WelcomeHelper(this, WelcomeScreen.class);
-        screen.show(savedInstanceState);
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -256,7 +252,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        screen.onSaveInstanceState(outState);
     }
 
     private void prepareSong(Track song) {
@@ -350,9 +345,9 @@ public class MainActivity extends AppCompatActivity {
     private void pushPrevious() {
 
         mButtonPrev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firstLaunch = false;
+                    @Override
+                    public void onClick(View v) {
+                        firstLaunch = false;
                 if (mMediaPlayer != null) {
 
                     if (currentIndex - 1 >= 0) {

@@ -22,9 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.WelcomeScreen"
-            android:theme="@style/CustomWelcomeScreenTheme"/>
-        <activity
             android:name=".About"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -32,7 +29,7 @@
                 android:value="com.judah.siyonkegeet.MainActivity"/>
         </activity>
         <activity
-            android:name=".Hindi.HindiSongs">
+            android:name=".ui.HindiSongs">
         </activity>
     </application>
 

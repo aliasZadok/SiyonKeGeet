@@ -1,4 +1,4 @@
-package com.judah.siyonkegeet.Hindi;
+package com.judah.siyonkegeet.ui;
 
 
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.judah.siyonkegeet.R;
+import com.judah.siyonkegeet.fragments.LyricsFragment;
+import com.judah.siyonkegeet.model.HindiLyrics;
 
 /**
  * Created by Judah on 1/11/2017.

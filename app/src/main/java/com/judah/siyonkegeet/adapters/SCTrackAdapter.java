@@ -1,21 +1,20 @@
-package com.judah.siyonkegeet.ui;
+package com.judah.siyonkegeet.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 import com.judah.siyonkegeet.R;
+import com.judah.siyonkegeet.model.Track;
 import com.judah.siyonkegeet.utils.DurationConverter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Judah on 12/21/2016.
