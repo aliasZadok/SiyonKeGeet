@@ -39,13 +39,12 @@ public class LyricsFragment extends Fragment {
         return view;
     }
 
-    private void setUpCheckBoxes(String[] ingredients, ViewGroup container, boolean[] checkedBoxes) {
+    private void setUpCheckBoxes(String[] lyrics, ViewGroup container, boolean[] checkedBoxes) {
         int i = 0;
-        for (String ingredient : ingredients) {
+        for (String lyric : lyrics) {
             mCheckBoxes[i] = new CheckBox(getActivity());
-            mCheckBoxes[i].setPadding(8, 16, 8, 16);
             mCheckBoxes[i].setTextSize(20f);
-            mCheckBoxes[i].setText(ingredient);
+            mCheckBoxes[i].setText(lyric);
             container.addView(mCheckBoxes[i]);
             if (checkedBoxes[i]) {
                 mCheckBoxes[i].toggle();

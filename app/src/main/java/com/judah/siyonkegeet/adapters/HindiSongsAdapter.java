@@ -44,7 +44,7 @@ public class HindiSongsAdapter extends RecyclerView.Adapter implements SectionTi
 
     @Override
     public String getSectionTitle(int position) {
-        return HindiLyrics.songNames[position].substring(0, 2);
+        return HindiLyrics.songNames[position].substring(0, 3);
     }
 
 

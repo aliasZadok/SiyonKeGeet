@@ -48,8 +48,9 @@ public class About extends AppCompatActivity {
             public void onClick(View view) {
                 new MaterialDialog.Builder(About.this)
                         .title("Implemented Libraries")
+                        .items(R.array.libraries)
+                        .itemsCallback(null)
                         .positiveText("OK")
-                        .content("Material-Dialogs \n\nPicasso \n\nMaterialDrawer \n\nVolley \n\nRecycler Fast-scroll \n\nCircleImageView")
                         .show();
             }
         });

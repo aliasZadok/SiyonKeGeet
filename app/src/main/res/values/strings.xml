@@ -4,4 +4,12 @@
     <string name="lyrics">Lyrics</string>
     <string name="description_one">Bro.Bakht Singh (1903 - 2000) was a man of God and a servant of Christ who \"served his own generation by the will of God\" Acts 13:36. He became a Christian while he was a student in Canada. He was India\'s foremost evangelist, preacher and indigenous church planter who founded churches based on New Testament principles. He began a worldwide indigenous church-planting movement in India that eventually saw more than 10,000 local churches. He never sought recognition or status for what he believed the Lord was calling him to do. Br.Bakht Singh went to be with the Lord early September 17, in Hyderabad, India. He was 97.</string>
     <string name="description_two">Bro. Lazar Sen is recognized as one of the most popular Biblical Hindi songs writer,composer and singer of his time (1950-2005) among the believers in Bro. Bakht Singh\’s fellowship. He composed more than 500 scripture based songs among which some are very famous and popular like Jayengai Uttam ek desh mai jarur, Hum hai prabhu ka swargya gharana, Yatri hun mai jag mai prabhuji etc. The Lord used these songs in a mighty way for salvation, restoration and sanctification of many souls and still the Lord is blessing many through the songs he composed after much prayer and experience.</string>
+    <string-array name="libraries">
+        <item>Material-Dialogs </item>
+        <item>Picasso </item>
+        <item>MaterialDrawer </item>
+        <item>Volley </item>
+        <item>Recycler Fast-scroll </item>
+        <item>CircleImageView</item>
+    </string-array>
 </resources>
