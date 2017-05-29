@@ -11,12 +11,15 @@ import com.judah.siyonkegeet.model.HindiLyrics;
 import com.judah.siyonkegeet.R;
 import com.judah.siyonkegeet.fragments.FragmentListHindi;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by Judah on 1/11/2017.
  */
 
 public class HindiSongsAdapter extends RecyclerView.Adapter implements SectionTitleProvider {
+    private ArrayList<HindiLyrics> mLyrics;
 
     private final FragmentListHindi.OnSongsSelectedInterface mListener;
 
@@ -68,6 +71,5 @@ public class HindiSongsAdapter extends RecyclerView.Adapter implements SectionTi
             mListener.onListSongsSelected(mIndex);
         }
     }
-
 
 }

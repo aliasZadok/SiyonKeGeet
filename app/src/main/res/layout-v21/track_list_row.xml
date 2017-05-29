@@ -22,16 +22,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textSize="12sp"/>
-    <TextView
-        android:id="@+id/track_description"
-        android:text="DESCRIPTION"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
-        android:textSize="12sp"
-        android:layout_above="@+id/track_duration"
-        android:layout_alignLeft="@+id/track_title"
-        android:layout_alignStart="@+id/track_title"/>
 
     <TextView
         android:text="LAYOUT_TITLE"
@@ -45,5 +35,24 @@
         android:layout_toEndOf="@+id/track_image"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/track_duration"
+        android:layout_toStartOf="@+id/track_duration"
+        android:text="Duration: "
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/show_lyrics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/show_lyrics"
+        android:layout_alignTop="@+id/track_title"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

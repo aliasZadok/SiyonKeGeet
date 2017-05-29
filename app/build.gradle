@@ -27,6 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.github.tosslife:pullloadview:1.1.0'
     compile 'com.miguelcatalan:materialsearchview:1.4.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.afollestad.material-dialogs:core:0.9.2.2'

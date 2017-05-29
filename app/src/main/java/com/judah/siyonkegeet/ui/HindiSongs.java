@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 
 import com.judah.siyonkegeet.R;
 import com.judah.siyonkegeet.fragments.FragmentListHindi;
@@ -19,8 +18,6 @@ public class HindiSongs extends AppCompatActivity implements FragmentListHindi.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hindi_songs);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         FragmentListHindi savedFragment = (FragmentListHindi) getSupportFragmentManager().findFragmentByTag(LIST_FRAGMENT);
         if (savedFragment == null) {
             FragmentListHindi listFragment = new FragmentListHindi();
@@ -34,7 +31,7 @@ public class HindiSongs extends AppCompatActivity implements FragmentListHindi.O
     @Override
     public void onListSongsSelected(int index) {
         ViewPagerHindi ViewPager = new ViewPagerHindi();
-        Bundle bundle= new Bundle();
+        Bundle bundle = new Bundle();
         bundle.putInt(ViewPagerHindi.KEY_LYRICS_INDEX, index);
         ViewPager.setArguments(bundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -43,4 +40,5 @@ public class HindiSongs extends AppCompatActivity implements FragmentListHindi.O
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
 }

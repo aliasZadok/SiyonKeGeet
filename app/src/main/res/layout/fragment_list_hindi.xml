@@ -4,15 +4,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+    <FrameLayout
+        android:id="@+id/toolbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+        <com.miguelcatalan.materialsearchview.MaterialSearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/hindiSongsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"/>
+        android:layout_below="@id/toolbar_container"/>
 
     <com.futuremind.recyclerviewfastscroll.FastScroller
         android:id="@+id/fastscroll"
@@ -20,8 +31,9 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/toolbar_container"
         android:orientation="vertical"
         app:fastscroll__bubbleColor="@color/colorPrimary"
         app:fastscroll__handleColor="@color/colorAccent"/>
+
 </RelativeLayout>

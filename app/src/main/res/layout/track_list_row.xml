@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+                android:orientation="vertical"
               android:paddingLeft="@dimen/activity_vertical_margin"
               android:paddingRight="@dimen/activity_vertical_margin"
               android:layout_width="match_parent"
@@ -22,16 +22,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textSize="12sp"/>
-    <TextView
-        android:id="@+id/track_description"
-        android:text="DESCRIPTION"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
-        android:textSize="12sp"
-        android:layout_above="@+id/track_duration"
-        android:layout_alignLeft="@+id/track_title"
-        android:layout_alignStart="@+id/track_title"/>
 
     <TextView
         android:text="LAYOUT_TITLE"
@@ -45,5 +35,25 @@
         android:layout_toEndOf="@+id/track_image"
         android:layout_marginLeft="13dp"
         android:layout_marginStart="13dp"/>
+
+    <TextView
+        android:id="@+id/durationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/track_duration"
+        android:layout_toStartOf="@+id/track_duration"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+        android:textSize="12sp"
+        android:text="Duration: "/>
+
+    <ImageView
+        android:id="@+id/show_lyrics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/show_lyrics"
+        android:layout_alignTop="@+id/track_title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

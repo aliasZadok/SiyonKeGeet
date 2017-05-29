@@ -22,7 +22,7 @@ import com.judah.siyonkegeet.model.HindiLyrics;
  */
 
 public class ViewPagerHindi extends Fragment {
-    public static final String KEY_LYRICS_INDEX="lyrics_index";
+    public static final String KEY_LYRICS_INDEX = "lyrics_index";
 
     @Nullable
     @Override
@@ -34,7 +34,6 @@ public class ViewPagerHindi extends Fragment {
         View view = inflater.inflate(R.layout.viewpager_hindi_fragment, container, false);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
 
@@ -47,7 +46,7 @@ public class ViewPagerHindi extends Fragment {
         viewPager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                    return lyrics;
+                return lyrics;
             }
 
             @Override
@@ -63,4 +62,5 @@ public class ViewPagerHindi extends Fragment {
         super.onStop();
         getActivity().setTitle(getResources().getString(R.string.lyrics));
     }
+
 }

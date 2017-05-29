@@ -49,14 +49,14 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar mLoader;
     ProgressBar mMainLoader;
     long currentSongLength;
-    private Toolbar toolbar;
-    private AccountHeader headerResult = null;
-    private Drawer result = null;
+    Toolbar mToolbar;
+    AccountHeader mHeaderResult = null;
+    Drawer mResult = null;
     private ArrayList<Track> songList;
     private SCTrackAdapter mAdapter;
     private TextView mSelectedTrackTitle;
     private MediaPlayer mMediaPlayer;
-    private RecyclerView recycler;
+    RecyclerView mRecyclerView;
     private ImageView mPlayerController;
     private ImageView mButtonNext;
     private ImageView mButtonPrev;
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mSelectedTrackTitle = (TextView) findViewById(R.id.selected_track_title);
-        recycler = (RecyclerView) findViewById(R.id.track_list_view);
+        mRecyclerView = (RecyclerView) findViewById(R.id.track_list_view);
         mPlayerController = (ImageView) findViewById(R.id.player_control);
         mButtonNext = (ImageView) findViewById(R.id.btn_next);
         mButtonPrev = (ImageView) findViewById(R.id.btn_previous);
@@ -117,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
 
         songList = new ArrayList<>();
 
-        recycler.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         mAdapter = new SCTrackAdapter(getApplicationContext(), songList, new SCTrackAdapter.RecyclerItemClickListener() {
             @Override
             public void onClickListener(Track song, int position) {
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 prepareSong(song);
             }
         });
-        recycler.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
         mMediaPlayer = new MediaPlayer();
         mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -158,13 +159,12 @@ public class MainActivity extends AppCompatActivity {
         pushNext();
 
 
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         final IProfile profile = new ProfileDrawerItem().withName("Siyon Ke Geet").withIcon(R.drawable.profile).withIdentifier(100);
 
-        headerResult = new AccountHeaderBuilder()
+        mHeaderResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withTranslucentStatusBar(true)
                 .withHeaderBackground(R.drawable.header)
@@ -173,10 +173,10 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
 
-        result = new DrawerBuilder()
+        mResult = new DrawerBuilder()
                 .withActivity(this)
-                .withToolbar(toolbar)
-                .withAccountHeader(headerResult)
+                .withToolbar(mToolbar)
+                .withAccountHeader(mHeaderResult)
                 .withDisplayBelowStatusBar(true)
                 .withActionBarDrawerToggleAnimated(true)
                 .withDrawerGravity(Gravity.START)
@@ -194,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = null;
                             if (drawerItem.getIdentifier() == 1) {
                                 intent = new Intent(MainActivity.this, MainActivity.class);
+                                MainActivity.this.finish();
                             } else if (drawerItem.getIdentifier() == 2) {
                                 intent = new Intent(MainActivity.this, HindiSongs.class);
                             } else if (drawerItem.getIdentifier() == 3) {
@@ -210,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+        mResult.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
 
 
     }
@@ -345,9 +346,9 @@ public class MainActivity extends AppCompatActivity {
     private void pushPrevious() {
 
         mButtonPrev.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        firstLaunch = false;
+            @Override
+            public void onClick(View v) {
+                firstLaunch = false;
                 if (mMediaPlayer != null) {
 
                     if (currentIndex - 1 >= 0) {

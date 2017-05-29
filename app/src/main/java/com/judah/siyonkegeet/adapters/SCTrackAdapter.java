@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.judah.siyonkegeet.R;
 import com.judah.siyonkegeet.model.Track;
 import com.judah.siyonkegeet.utils.DurationConverter;
@@ -43,13 +44,25 @@ public class SCTrackAdapter extends RecyclerView.Adapter<SCTrackAdapter.SongView
 
     @Override
     public void onBindViewHolder(SongViewHolder holder, int position) {
-        Track song = mTracks.get(position);
+        final Track song = mTracks.get(position);
+
         if (song != null) {
 
             holder.titleTextView.setText(song.getTitle());
             String duration = DurationConverter.convertDuration(song.getDuration());
             holder.durationTextView.setText(duration);
-            holder.descriptionTextView.setText(song.getDescription());
+            //holder.descriptionTextView.setText(song.getDescription());
+            holder.showLyrics.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                        new MaterialDialog.Builder(view.getContext())
+                                .title(song.getTitle())
+                                .content(song.getDescription())
+                                .positiveText("DISMISS")
+                                .show();
+
+                }
+            });
             Picasso.with(mContext).load(song.getArtworkUrl()).placeholder(R.drawable.block_helper).into(holder.trackImageView);
             holder.bind(song, listener);
 
@@ -85,15 +98,17 @@ public class SCTrackAdapter extends RecyclerView.Adapter<SCTrackAdapter.SongView
 
         ImageView trackImageView;
         TextView titleTextView;
+        ImageView showLyrics;
         TextView durationTextView;
-        TextView descriptionTextView;
+        //TextView descriptionTextView;
 
         public SongViewHolder(View itemView) {
             super(itemView);
             titleTextView = (TextView) itemView.findViewById(R.id.track_title);
             trackImageView = (ImageView) itemView.findViewById(R.id.track_image);
             durationTextView = (TextView) itemView.findViewById(R.id.track_duration);
-            descriptionTextView = (TextView) itemView.findViewById(R.id.track_description);
+            showLyrics = (ImageView) itemView.findViewById(R.id.show_lyrics);
+            //descriptionTextView = (TextView) itemView.findViewById(R.id.track_description);
 
         }
 
@@ -106,6 +121,10 @@ public class SCTrackAdapter extends RecyclerView.Adapter<SCTrackAdapter.SongView
             });
         }
 
+
+
     }
+
+
 
 }
